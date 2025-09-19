@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="cef46d2f-2de8-464c-94b4-06242d4886b7" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="demoFlow" doc:id="51d0b136-3384-4bce-957c-c9c7423c8cf6" >
+		<http:listener doc:name="Listener" doc:id="cd444d1a-8f99-4496-9d90-210d4dd00a86" config-ref="HTTP_Listener_config" path="cicd"/>
+		<logger level="INFO" doc:name="Logger" doc:id="40c5384d-97b2-4e94-b433-880e391c2ab1" message='#["pipleline started"]'/>
+	</flow>
+</mule>
